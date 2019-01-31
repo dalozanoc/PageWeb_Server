@@ -23,7 +23,7 @@ s2=0
 def getArguments(path):
         global s1,s2
         try:
-                print path
+                #print path
                 query = urlparse(path).query
                 query_components = dict(qc.split("=") for qc in query.split("&"))
                 print (query_components)
