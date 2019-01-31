@@ -23,10 +23,10 @@ s2=0
 def getArguments(path):
         global s1,s2
         try:
-                print path
+                print (path)
                 query = urlparse(path).query
                 query_components = dict(qc.split("=") for qc in query.split("&"))
-                print query_components
+                print (query_components)
                 try:
                         s1= query_components['sensor1']
                 except:#EVITA ERRORES JUNTO CON EL TRY
@@ -35,7 +35,7 @@ def getArguments(path):
                         s2= query_components['sensor2']
                 except:
                         pass
-                print s1,s2
+                print (s1,s2)
                 #print s2
                 #imsi = query_components["imsi"]
         except:
@@ -49,7 +49,7 @@ class myHandler(BaseHTTPRequestHandler):
                 if self.path=="/": #127.0.0.0:8080
                         self.path="/index.html"
                 if self.path.find('?'):
-                        print self.path
+                        print (self.path)
                         query_components = parse_qs(urlparse(self.path).query)
                         #imsi = query_components["imsi"] 
                         action(self.path)
@@ -97,12 +97,12 @@ try:
         #Create a web server and define the handler to manage the
         #incoming request
         server = HTTPServer(('', PORT_NUMBER), myHandler)
-        print 'Started httpserver on port ' , PORT_NUMBER
+        print ('Started httpserver on port ') , PORT_NUMBER
         
         #Wait forever for incoming htto requests
         server.serve_forever()
 
 except KeyboardInterrupt:
-        print '^C received, shutting down the web server'
+        print ('^C received, shutting down the web server')
         server.socket.close()
         

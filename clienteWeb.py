@@ -14,7 +14,7 @@ A0 = board.get_pin('a:0:i')
 A1 = board.get_pin('a:1:i')
 val=A0.read()
 val1=A1.read()
-print val
+print (val)
 
 def send_sensor(val,val1):
         response = urllib2.urlopen('http://127.0.0.1:8080/?sensor1='+str(val)+'&sensor2='+str(val1))
@@ -27,8 +27,8 @@ def _timer():
         val=(A0.read())*100
         val1=(A1.read())*498.8
         #print val
-        print "Valor_del_Potenciometro", '=', (val)
-        print "Valor_del_LM35_Centigrados", '=', (val1)
+        print ("Valor_del_Potenciometro"), ('='), (val)
+        print ("Valor_del_LM35_Centigrados"), ('='), (val1)
         
 
         send_sensor(val,val1)
