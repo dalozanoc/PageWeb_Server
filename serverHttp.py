@@ -88,7 +88,7 @@ class myHandler(BaseHTTPRequestHandler):
                                 try:
                                         self.wfile.write(data)
                                 except:
-                                        self.wfile.write(byte(data, 'UTF-8'))
+                                        self.wfile.write(bytes(data, 'UTF-8'))
                                 f.close()
                         return
 
