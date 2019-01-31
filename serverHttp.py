@@ -85,7 +85,10 @@ class myHandler(BaseHTTPRequestHandler):
                                 self.end_headers()
                                 data=f.read()#a la variable data se le asigan el comando de lectura de la variable f
                                 data=data.replace('s1',str(s1)).replace('s2',str(s2))#remplaza el texto s1 por el valor de la variable para q [puieda ser impresa como un string
-                                self.wfile.write(data)
+                                try:
+                                        self.wfile.write(data)
+                                except:
+                                        self.wfile.write(byte(data, 'UTF-8'))
                                 f.close()
                         return
 
